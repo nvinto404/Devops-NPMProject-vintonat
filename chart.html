@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="node_modules/chart.js/dist/chart.umd.js"></script>
+<title>DevOps Chart</title>
+
+</head>
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['DevOps', 'Data Science', 'Design Science', 'Advanced IT Management', 'IBM Challenge', 'A&F'],
+        datasets: [{
+          label: 'Wert der Motivation für dieses Fach',
+          data: [22, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  
+
+ 

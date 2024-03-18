@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+  </head>
+
+  <body>
+    <h2>Kalendar</h2>
+    
+    <div id="calendar"></div>
+
+    <h3>Füge ein neues Ereignis hinzu</h3>
+    <input type="text" id="eventTitle" placeholder="Ereignistitel">
+    <button id="addEventBtn">Einfügen</button>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/lang-all.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#calendar').fullCalendar({
+          lang: 'en',
+        });
+        $('#addEventBtn').click(function() {
+          var eventTitle = $('#eventTitle').val();
+          if (eventTitle) {
+            $('#calendar').fullCalendar('renderEvent', {
+              title: eventTitle,
+              start: moment(),
+              allDay: true
+            });
+            $('#eventTitle').val('');
+          } else {
+            alert('Bitte füge ein Ereignistitel hinzu');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
